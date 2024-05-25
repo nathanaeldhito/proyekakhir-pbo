@@ -24,22 +24,20 @@ public class modelTabelDataTurnamen extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 5;
+        return 4;
     }
     
     @Override
     public String getColumnName(int column){
         switch(column){
             case 0:
-                return "ID";
-            case 1:
                 return "Nama Tim";
-            case 2:
+            case 1:
                 return "Manajer";
+            case 2:
+                return "Pelatih";
             case 3:
                 return "Jumlah Pemain";
-            case 4:
-                return "Pelatih";
             default:
                 return null;
         }
@@ -49,15 +47,13 @@ public class modelTabelDataTurnamen extends AbstractTableModel {
     public Object getValueAt(int rowIndex, int columnIndex) {
         switch(columnIndex){
             case 0:
-                return dt.get(rowIndex).getId();
-            case 1:
                 return dt.get(rowIndex).getNama_tim();
-            case 2:
+            case 1:
                 return dt.get(rowIndex).getManajer();
+            case 2:
+                return dt.get(rowIndex).getPelatih();
             case 3:
                 return dt.get(rowIndex).getJml_pemain();
-            case 4:
-                return dt.get(rowIndex).getPelatih();
             default:
                 return null;
         }
