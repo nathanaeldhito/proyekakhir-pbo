@@ -6,6 +6,7 @@ package view;
 
 import controller.dataTurnamenController;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
@@ -18,15 +19,14 @@ public class mainView extends javax.swing.JFrame {
     /**
      * Creates new form mainView
      */
-    
     dataTurnamenController dt;
-    
+
     public mainView() {
-        super("Turnamen Sepakbola");
+        super("Turnamen Sepakbola - Admin");
         initComponents();
         dt = new dataTurnamenController(this);
         dt.isiTabel();
-        
+
         // saat baris di tabel dipilih, text field akan diisi dan id akan diset
         tabelData.getSelectionModel().addListSelectionListener(event -> {
             if (!event.getValueIsAdjusting() && tabelData.getSelectedRow() != -1) {
@@ -50,6 +50,7 @@ public class mainView extends javax.swing.JFrame {
         txtManajer = new javax.swing.JTextField();
         txtJPemain = new javax.swing.JTextField();
         txtPelatih = new javax.swing.JTextField();
+        btnLogout = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -61,59 +62,113 @@ public class mainView extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelData = new javax.swing.JTable();
         jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 102, 102));
+        setMaximumSize(new java.awt.Dimension(870, 420));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        txtNama.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         txtNama.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNamaActionPerformed(evt);
             }
         });
+        getContentPane().add(txtNama, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 215, -1));
 
+        txtManajer.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        getContentPane().add(txtManajer, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 215, -1));
+
+        txtJPemain.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         txtJPemain.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtJPemainActionPerformed(evt);
             }
         });
+        getContentPane().add(txtJPemain, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 215, -1));
 
+        txtPelatih.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        getContentPane().add(txtPelatih, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 215, -1));
+
+        btnLogout.setBackground(new java.awt.Color(204, 0, 0));
+        btnLogout.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
+        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogout.setText("Log out");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 50, 130, 30));
+
+        jLabel2.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nama Tim");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 92, 81, 30));
 
+        jLabel3.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Manajer");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 122, 81, 30));
 
-        jLabel4.setText("Jumlah Pemain");
+        jLabel4.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Jumlah Pemain (1-25)");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 182, -1, 30));
 
+        jLabel5.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Pelatih");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 152, 81, 30));
 
+        btnTambah.setBackground(new java.awt.Color(0, 102, 51));
+        btnTambah.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
+        btnTambah.setForeground(new java.awt.Color(255, 255, 255));
         btnTambah.setText("Tambah");
         btnTambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTambahActionPerformed(evt);
             }
         });
+        getContentPane().add(btnTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 130, 30));
 
+        btnEdit.setBackground(new java.awt.Color(0, 51, 255));
+        btnEdit.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
+        btnEdit.setForeground(new java.awt.Color(255, 255, 255));
         btnEdit.setText("Edit");
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditActionPerformed(evt);
             }
         });
+        getContentPane().add(btnEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, 130, 30));
 
+        btnHapus.setBackground(new java.awt.Color(255, 0, 51));
+        btnHapus.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
+        btnHapus.setForeground(new java.awt.Color(255, 255, 255));
         btnHapus.setText("Hapus");
         btnHapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHapusActionPerformed(evt);
             }
         });
+        getContentPane().add(btnHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 130, 30));
 
+        btnClear.setBackground(new java.awt.Color(204, 204, 0));
+        btnClear.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
+        btnClear.setForeground(new java.awt.Color(255, 255, 255));
         btnClear.setText("Clear");
         btnClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnClearActionPerformed(evt);
             }
         });
+        getContentPane().add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 130, 30));
 
+        tabelData.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         tabelData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -127,75 +182,23 @@ public class mainView extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tabelData);
 
-        jLabel6.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
-        jLabel6.setText("TURNAMEN SEPAKBOLA");
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, 440, 307));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(319, 319, 319)
-                        .addComponent(jLabel6))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnClear)
-                            .addComponent(txtNama, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtManajer, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPelatih, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnTambah)
-                            .addComponent(btnEdit)
-                            .addComponent(btnHapus)
-                            .addComponent(txtJPemain, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(40, 40, 40)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(20, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel6)
-                .addGap(16, 16, 16)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtManajer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(txtPelatih, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(txtJPemain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(btnTambah)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnEdit)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnHapus)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnClear))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21))
-        );
+        jLabel6.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel6.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("TURNAMEN SEPAKBOLA");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 6, -1, -1));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bg img/mainView bg.png"))); // NOI18N
+        jLabel7.setText("jLabel7");
+        jLabel7.setMaximumSize(new java.awt.Dimension(870, 380));
+        jLabel7.setMinimumSize(new java.awt.Dimension(870, 380));
+        jLabel7.setPreferredSize(new java.awt.Dimension(870, 380));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 420));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtNamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNamaActionPerformed
@@ -224,9 +227,17 @@ public class mainView extends javax.swing.JFrame {
 
     private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
         // TODO add your handling code here:
-        dt.delete();
-        if (!dt.isDeleteError()) {
-            dt.isiTabel();
+        int response = JOptionPane.showConfirmDialog(this,
+                "Apakah Anda yakin ingin hapus?",
+                "Konfirmasi Hapus",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.WARNING_MESSAGE);
+
+        if (response == JOptionPane.YES_OPTION) {
+            dt.delete();
+            if (!dt.isDeleteError()) {
+                dt.isiTabel();
+            }
         }
     }//GEN-LAST:event_btnHapusActionPerformed
 
@@ -234,6 +245,20 @@ public class mainView extends javax.swing.JFrame {
         // TODO add your handling code here:
         clearForm();
     }//GEN-LAST:event_btnClearActionPerformed
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        // TODO add your handling code here:
+        int response = JOptionPane.showConfirmDialog(this,
+                "Apakah Anda yakin ingin keluar?",
+                "Konfirmasi Logout",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE);
+
+        if (response == JOptionPane.YES_OPTION) {
+            this.setVisible(false);
+            new userView().setVisible(true);
+        }
+    }//GEN-LAST:event_btnLogoutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -274,6 +299,7 @@ public class mainView extends javax.swing.JFrame {
     private javax.swing.JButton btnClear;
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnHapus;
+    private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnTambah;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -281,6 +307,7 @@ public class mainView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabelData;
     private javax.swing.JTextField txtJPemain;
@@ -296,7 +323,7 @@ public class mainView extends javax.swing.JFrame {
         txtPelatih.setText("");
         txtJPemain.setText("");
     }
-    
+
     public JButton getBtnClear() {
         return btnClear;
     }
@@ -368,6 +395,5 @@ public class mainView extends javax.swing.JFrame {
     public void setTxtPelatih(JTextField txtPelatih) {
         this.txtPelatih = txtPelatih;
     }
-    
-    
+
 }
