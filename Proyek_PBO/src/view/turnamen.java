@@ -14,10 +14,10 @@ public class turnamen {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        mainView view = new mainView();
-        view.setVisible(true);
-        view.setLocationRelativeTo(null);
+        // TODO code application logic here        
+        userView user = new userView();
+        user.setVisible(true);
+        user.setLocationRelativeTo(null);
     }
     
 }

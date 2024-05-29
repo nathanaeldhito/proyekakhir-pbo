@@ -3,14 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Project/Coding/Java/proyekakhir-pbo/Proyek_PBO/src/connection/connector.java</file>
-            <file>file:/D:/Project/Coding/Java/proyekakhir-pbo/Proyek_PBO/src/DAOImplement/dataTurnamenImplement.java</file>
-            <file>file:/D:/Project/Coding/Java/proyekakhir-pbo/Proyek_PBO/src/DAOData/dataTurnamenDAO.java</file>
-            <file>file:/D:/Project/Coding/Java/proyekakhir-pbo/Proyek_PBO/src/model/modelTabelDataTurnamen.java</file>
+            <file>file:/D:/Project/Coding/Java/proyekakhir-pbo/Proyek_PBO/src/view/login.java</file>
             <file>file:/D:/Project/Coding/Java/proyekakhir-pbo/Proyek_PBO/src/view/turnamen.java</file>
-            <file>file:/D:/Project/Coding/Java/proyekakhir-pbo/Proyek_PBO/src/controller/dataTurnamenController.java</file>
             <file>file:/D:/Project/Coding/Java/proyekakhir-pbo/Proyek_PBO/src/view/mainView.java</file>
-            <file>file:/D:/Project/Coding/Java/proyekakhir-pbo/Proyek_PBO/src/model/dataTurnamen.java</file>
         </group>
     </open-files>
 </project-private>
