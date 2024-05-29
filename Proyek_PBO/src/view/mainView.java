@@ -77,10 +77,10 @@ public class mainView extends javax.swing.JFrame {
                 txtNamaActionPerformed(evt);
             }
         });
-        getContentPane().add(txtNama, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, 215, -1));
+        getContentPane().add(txtNama, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 215, -1));
 
         txtManajer.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        getContentPane().add(txtManajer, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, 215, -1));
+        getContentPane().add(txtManajer, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 215, -1));
 
         txtJPemain.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         txtJPemain.addActionListener(new java.awt.event.ActionListener() {
@@ -88,10 +88,10 @@ public class mainView extends javax.swing.JFrame {
                 txtJPemainActionPerformed(evt);
             }
         });
-        getContentPane().add(txtJPemain, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 215, -1));
+        getContentPane().add(txtJPemain, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 215, -1));
 
         txtPelatih.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        getContentPane().add(txtPelatih, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 215, -1));
+        getContentPane().add(txtPelatih, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 215, -1));
 
         btnLogout.setBackground(new java.awt.Color(204, 0, 0));
         btnLogout.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
@@ -107,22 +107,22 @@ public class mainView extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nama Tim");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 81, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 92, 81, 30));
 
         jLabel3.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Manajer");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 81, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 122, 81, 30));
 
         jLabel4.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Jumlah Pemain");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
+        jLabel4.setText("Jumlah Pemain (1-25)");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 182, -1, 30));
 
         jLabel5.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Pelatih");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 81, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 152, 81, 30));
 
         btnTambah.setBackground(new java.awt.Color(0, 102, 51));
         btnTambah.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
@@ -227,9 +227,17 @@ public class mainView extends javax.swing.JFrame {
 
     private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
         // TODO add your handling code here:
-        dt.delete();
-        if (!dt.isDeleteError()) {
-            dt.isiTabel();
+        int response = JOptionPane.showConfirmDialog(this,
+                "Apakah Anda yakin ingin hapus?",
+                "Konfirmasi Hapus",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.WARNING_MESSAGE);
+
+        if (response == JOptionPane.YES_OPTION) {
+            dt.delete();
+            if (!dt.isDeleteError()) {
+                dt.isiTabel();
+            }
         }
     }//GEN-LAST:event_btnHapusActionPerformed
 

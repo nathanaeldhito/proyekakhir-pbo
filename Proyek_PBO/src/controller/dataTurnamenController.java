@@ -17,30 +17,37 @@ import view.mainView;
  * @author LENOVO
  */
 public class dataTurnamenController {
+
     mainView frame;
     dataTurnamenImplement implDataTurnamen;
     List<dataTurnamen> dt;
-    
+
     private Integer selectedId;
     private boolean insertError;
     private boolean updateError;
     private boolean deleteError;
-    
+
     public dataTurnamenController(mainView frame) {
         this.frame = frame;
         implDataTurnamen = new dataTurnamenDAO();
         dt = implDataTurnamen.getAll();
     }
-    
+
     // cek validasi form
     private boolean isFormValid() {
         if (frame.getTxtNama().getText().isEmpty() || frame.getTxtManajer().getText().isEmpty() || frame.getTxtPelatih().getText().isEmpty() || frame.getTxtJPemain().getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Mohon isi data", "Warning", JOptionPane.WARNING_MESSAGE);
             return false;
         }
         try {
-            float jPemain = Integer.parseInt(frame.getTxtJPemain().getText());
-            return jPemain >= 0 && jPemain <= 25;
+            int jPemain = Integer.parseInt(frame.getTxtJPemain().getText());
+            if (jPemain < 1 || jPemain > 25) {
+                JOptionPane.showMessageDialog(null, "Mohon input sesuai ketentuan", "Warning", JOptionPane.WARNING_MESSAGE);
+                return false;
+            }
+            return true;
         } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Mohon input jumlah pemain dengan angka yang valid", "Warning", JOptionPane.WARNING_MESSAGE);
             return false;
         }
     }
@@ -69,7 +76,6 @@ public class dataTurnamenController {
                 insertError = true;
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Mohon isi data", "Warning", JOptionPane.WARNING_MESSAGE);
             insertError = true;
         }
     }
@@ -93,7 +99,6 @@ public class dataTurnamenController {
                 updateError = true;
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Mohon isi data", "Warning", JOptionPane.WARNING_MESSAGE);
             updateError = true;
         }
     }
@@ -111,7 +116,6 @@ public class dataTurnamenController {
                 deleteError = true;
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Mohon isi data", "Warning", JOptionPane.WARNING_MESSAGE);
             deleteError = true;
         }
     }
